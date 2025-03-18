@@ -89,3 +89,17 @@ button:focus-visible {
   color: #214727;
 }
 
+.clear {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.clear:hover {
+  background-color: #cc0000;
+}
+

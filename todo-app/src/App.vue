@@ -60,6 +60,7 @@ const toggleTask = (index) => {
     />
     </transition-group>
   </ul>
+    <button @click = "tasks = []" class = "clear">Tout Supprimer</button>
 
 
   </div>
