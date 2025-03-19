@@ -1,20 +1,22 @@
 <script setup>
 import {ref , onMounted , watch} from "vue";
 import TodoItem from "./components/TodoItem.vue";
+import axios from 'axios';
 
 //Déclare une liste de tâches et une variable pour la nouvelle tâche
 const tasks = ref([]);
 const newTask = ref('');
 
-//charger les taches au demarrage
-onMounted(() => {
-  const savedTasks = localStorage.getItem("tasks");
-  if (savedTasks) {
-    tasks.value = JSON.parse(savedTasks);
-  }
-})
 
 
+onMounted(async () => {
+  let response = await axios.get('http://127.0.0.1:8000/api/tasks', {
+    headers: {
+      Authorization: `Bearer VOTRE_TOKEN_Ici`
+    }
+  });
+  tasks.value = response.data;
+});
 
 //sauvegarder les taches a chaque modification
 watch(tasks, () => {
